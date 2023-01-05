@@ -145,7 +145,7 @@ extern bool listOpFamilyOperators(const char *accessMethod_pattern,
 extern bool listOpFamilyFunctions(const char *access_method_pattern,
 								  const char *family_pattern, bool verbose);
 
-/* AgensGraph Commands */
+/* GraphDatabase Commands */
 /* \dG */
 extern bool listGraphs(const char *pattern, bool verbose);
 

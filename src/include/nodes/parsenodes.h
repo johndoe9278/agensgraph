@@ -194,7 +194,7 @@ typedef struct Query
 	int			stmt_location;	/* start location, or -1 if unknown */
 	int			stmt_len;		/* length in bytes; 0 means "rest of string" */
 
-	/* for agensgraph */
+	/* for graphdatabase */
 	int			dijkstraWeight;
 	bool		dijkstraWeightOut;
 	Node	   *dijkstraEndId;
@@ -3732,7 +3732,7 @@ typedef struct DropSubscriptionStmt
 
 
 /****************************************************************************
- * Agens Graph related node structures
+ * Graph Database related node structures
  ****************************************************************************/
 
 typedef enum CreateGraphStmtKind

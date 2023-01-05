@@ -15,13 +15,13 @@
 /* Define if building universal (internal helper macro) */
 #undef AC_APPLE_UNIVERSAL_BUILD
 
-/* AgensGraph compatible version as a string */
+/* GraphDatabase compatible version as a string */
 #undef AG_COMP_VERSION
 
-/* AgensGraph Git revisionas a string */
+/* GraphDatabase Git revisionas a string */
 #undef AG_GIT_REVISION
 
-/* AgensGraph version as a string */
+/* GraphDatabase version as a string */
 #undef AG_VERSION
 
 /* The normal alignment of `double', in bytes. */

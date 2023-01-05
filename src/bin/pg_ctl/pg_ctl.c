@@ -2059,7 +2059,7 @@ static void
 do_help(void)
 {
 #if AGS_REBRANDED == 1
-	printf(_("%s is a utility to initialize, start, stop, or control a AgensGraph server.\n\n"), progname);
+	printf(_("%s is a utility to initialize, start, stop, or control a GraphDatabase server.\n\n"), progname);
 #else
 	printf(_("%s is a utility to initialize, start, stop, or control a PostgreSQL server.\n\n"), progname);
 #endif
@@ -2341,7 +2341,7 @@ main(int argc, char **argv)
 		else if (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-V") == 0)
 		{
 #if AGS_REBRANDED == 1
-			puts("ag_ctl (AgensGraph) " AG_VERSION);
+			puts("ag_ctl (GraphDatabase) " AG_VERSION);
 #else
 			puts("pg_ctl (PostgreSQL) " PG_VERSION);
 #endif

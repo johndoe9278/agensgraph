@@ -200,12 +200,12 @@ Inherits: propidx.ag_vertex
 -- Multi-column unique property index
 CREATE VLABEL piv5;
 CREATE UNIQUE PROPERTY INDEX ON piv5 (name.first, name.last);
-CREATE (:piv5 {name: {first: 'agens'}});
-CREATE (:piv5 {name: {first: 'agens'}});
-CREATE (:piv5 {name: {first: 'agens', last: 'graph'}});
-CREATE (:piv5 {name: {first: 'agens', last: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph', last: 'database'}});
+CREATE (:piv5 {name: {first: 'graph', last: 'database'}});
 ERROR:  duplicate key value violates unique constraint "piv5_first_last_idx"
-DETAIL:  Key ((properties.'name'::text.'first'::text), (properties.'name'::text.'last'::text))=("agens", "graph") already exists.
+DETAIL:  Key ((properties.'name'::text.'first'::text), (properties.'name'::text.'last'::text))=("graph", "database") already exists.
 \d propidx.piv5
                                                          Table "propidx.piv5"
    Column   |  Type   | Collation | Nullable |                                         Default                                         

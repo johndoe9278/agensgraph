@@ -44,13 +44,10 @@ OBJS = \
 	cypher_describe.o
 
 
-all: psql agens
+all: psql
 
 ag_common.c: common.c
 	sed 's/AGS_REBRANDED 0/AGS_REBRANDED 1/g' $< >$@
-
-agens: $(OBJS) ag_common.o | submake-libpq submake-libpgport submake-libpgfeutils
-	$(CC) $(CFLAGS) $(OBJS) ag_common.o $(LDFLAGS) $(LDFLAGS_EX) $(LIBS) -o $@$(X)
 
 psql: $(OBJS) common.o | submake-libpq submake-libpgport submake-libpgfeutils
 	$(CC) $(CFLAGS) $(OBJS) common.o $(LDFLAGS) $(LDFLAGS_EX) $(LIBS) -o $@$(X)
@@ -72,7 +69,6 @@ distprep: sql_help.h sql_help.c psqlscanslash.c
 
 install: all installdirs
 	$(INSTALL_PROGRAM) psql$(X) '$(DESTDIR)$(bindir)/psql$(X)'
-	$(INSTALL_PROGRAM) agens$(X) '$(DESTDIR)$(bindir)/agens$(X)'
 	$(INSTALL_DATA) $(srcdir)/psqlrc.sample '$(DESTDIR)$(datadir)/psqlrc.sample'
 
 installdirs:
@@ -80,12 +76,10 @@ installdirs:
 
 uninstall:
 	rm -f '$(DESTDIR)$(bindir)/psql$(X)' '$(DESTDIR)$(datadir)/psqlrc.sample'
-	rm -f '$(DESTDIR)$(bindir)/agens$(X)'
 
 clean distclean:
 	rm -f psql$(X) $(OBJS) lex.backup
 	rm -rf tmp_check
-	rm -f agens$(X) common.o ag_common.c ag_common.o
 
 # files removed here are supposed to be in the distribution tarball,
 # so do not clean them in the clean/distclean rules

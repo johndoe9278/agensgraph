@@ -316,7 +316,7 @@ static ModifyTable *make_modifytable(PlannerInfo *root, Plan *subplan,
 static GatherMerge *create_gather_merge_plan(PlannerInfo *root,
 											 GatherMergePath *best_path);
 
-/* for agensgraph */
+/* for graphdatabase */
 static ModifyGraph *create_modifygraph_plan(PlannerInfo *root,
 											ModifyGraphPath *best_path);
 static GraphVLE *create_graph_vle_plan(PlannerInfo *root, GraphVLEPath *best_path);

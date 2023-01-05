@@ -173,7 +173,7 @@ static List *set_returning_clause_references(PlannerInfo *root,
 											 Index resultRelation,
 											 int rtoffset);
 
-/* agensgraph */
+/* graphdatabase */
 static void set_dijkstra_references(PlannerInfo *root,
 									Plan *plan,
 									int rtoffset);

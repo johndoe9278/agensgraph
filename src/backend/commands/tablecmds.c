@@ -610,7 +610,7 @@ static List *GetParentedForeignKeyRefs(Relation partition);
 static void ATDetachCheckNoForeignKeyRefs(Relation partition);
 static char GetAttributeCompression(Oid atttypid, char *compression);
 
-/* for agensgraph */
+/* for graphdatabase */
 static void ATExecDisableIndex(Relation rel);
 static bool isPropertyIndex(Oid indexoid);
 

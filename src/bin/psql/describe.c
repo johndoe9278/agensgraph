@@ -7015,7 +7015,7 @@ listOpFamilyFunctions(const char *access_method_pattern,
 /*
  * \dG
  *
- * Describes graphs (Agens)
+ * Describes graphs (Graphdb)
  */
 bool
 listGraphs(const char *pattern, bool verbose)
@@ -7080,7 +7080,7 @@ listGraphs(const char *pattern, bool verbose)
 /*
  * \dGl, \dGv, \dGe
  *
- * Describes graph labels (Agens)
+ * Describes graph labels (Graphdb)
  */
 bool
 listLabels(const char *pattern, bool verbose, const char labkind)
@@ -7214,7 +7214,7 @@ describeOneLabelDetails(const char *graphname, const char *labelname)
 	initPQExpBuffer(&buf);
 	initPQExpBuffer(&title);
 
-	/* AgensGraph is based on Postgres 9.5 and later */
+	/* GraphDatabase is based on Postgres 9.5 and later */
 	Assert(pset.sversion >= 90500);
 
 	printfPQExpBuffer(&buf,

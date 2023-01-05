@@ -211,7 +211,7 @@ itemptr_decode(ItemPointer itemptr, int64 encoded)
 	ItemPointerSet(itemptr, block, offset);
 }
 
-/* for agensgraph */
+/* for graphdatabase */
 extern bool DisableIndexLabel(Oid relid);
 
 #endif							/* INDEX_H */

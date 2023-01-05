@@ -43,13 +43,13 @@ PGAC_ARG_REQ(with, extra-version, [STRING], [append STRING to version],
 AC_DEFINE_UNQUOTED(PG_VERSION, "$PG_VERSION", [PostgreSQL version as a string])
 
 [AG_VERSION=2.14.0]
-AC_DEFINE_UNQUOTED(AG_VERSION, "$AG_VERSION", [AgensGraph version as a string])
+AC_DEFINE_UNQUOTED(AG_VERSION, "$AG_VERSION", [GraphDatabase version as a string])
 
 [AG_COMP_VERSION=2.14]
-AC_DEFINE_UNQUOTED(AG_COMP_VERSION, "$AG_COMP_VERSION", [AgensGraph compatible version as a string])
+AC_DEFINE_UNQUOTED(AG_COMP_VERSION, "$AG_COMP_VERSION", [GraphDatabase compatible version as a string])
 
 [AG_GIT_REVISION=`git rev-parse HEAD`]
-AC_DEFINE_UNQUOTED(AG_GIT_REVISION, "$AG_GIT_REVISION", [AgensGraph Git revisionas a string])
+AC_DEFINE_UNQUOTED(AG_GIT_REVISION, "$AG_GIT_REVISION", [GraphDatabase Git revisionas a string])
 
 AC_CANONICAL_HOST
 

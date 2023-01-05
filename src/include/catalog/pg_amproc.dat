@@ -1981,7 +1981,7 @@
 { amprocfamily => 'brin/box_inclusion_ops', amproclefttype => 'box',
   amprocrighttype => 'box', amprocnum => '13', amproc => 'box_contain' },
 
-# agensgraph
+# graphdatabase
 # graphid_ops
 # BTree
 { amprocfamily => 'btree/graphid_ops', amproclefttype => 'graphid',

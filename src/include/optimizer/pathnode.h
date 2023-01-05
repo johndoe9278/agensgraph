@@ -333,7 +333,7 @@ extern RelOptInfo *build_child_join_rel(PlannerInfo *root,
 										RelOptInfo *parent_joinrel, List *restrictlist,
 										SpecialJoinInfo *sjinfo, JoinType jointype);
 
-/* for agensgraph */
+/* for graphdatabase */
 extern ShortestpathPath *create_shortestpath_path(PlannerInfo *root,
 												  RelOptInfo *joinrel,
 												  JoinType jointype,

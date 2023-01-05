@@ -246,7 +246,7 @@ static bool group_by_has_partkey(RelOptInfo *input_rel,
 								 List *groupClause);
 static int	common_prefix_cmp(const void *a, const void *b);
 
-/* for agensgraph */
+/* for graphdatabase */
 static void preprocess_graph_pattern(PlannerInfo *root, List *pattern);
 static void preprocess_graph_sets(PlannerInfo *root, List *sets);
 static void preprocess_graph_delete(PlannerInfo *root, List *exprs);

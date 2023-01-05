@@ -34,7 +34,7 @@ static bool ExecQueryUsingCursor(const char *query, double *elapsed_msec);
 static bool command_no_begin(const char *query);
 static bool is_select_command(const char *query);
 
-/* Flags for AgensGraph utils. */
+/* Flags for GraphDatabase utils. */
 #define AGS_REBRANDED 0
 
 

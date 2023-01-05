@@ -4461,7 +4461,7 @@ planstate_walk_members(PlanState **planstates, int nplans,
  * walking post-analysis parse trees, it knows how to walk the node types
  * found in raw grammar output.
  *
- * used on agensgraph.
+ * used on graphdatabase.
  */
 Node *
 raw_expression_tree_mutator(Node *node,

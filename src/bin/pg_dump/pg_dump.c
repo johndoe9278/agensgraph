@@ -306,9 +306,9 @@ static void setupDumpWorker(Archive *AHX);
 static TableInfo *getRootTableInfo(const TableInfo *tbinfo);
 
 /*
- * AgensGraph dump methods
+ * GraphDatabase dump methods
  *
- * The AgensGraph generates tables and schemas under the names ELABEL (VLABEL)
+ * The GraphDatabase generates tables and schemas under the names ELABEL (VLABEL)
  * and GRAPH, respectively.
  * However, this type of restriction is not compatible with pg_dump.
  * Therefore, Release some restrictions to work with the most common DDLs
@@ -16897,7 +16897,7 @@ dumpIndex(Archive *fout, const IndxInfo *indxinfo)
 			binary_upgrade_set_pg_class_oids(fout, q,
 											 indxinfo->dobj.catId.oid, true);
 
-		/* Is it AgensGraph label? */
+		/* Is it GraphDatabase label? */
 		if (indxinfo->ispropidx)
 		{
 			setGraphPath(q, tbinfo->dobj.namespace);
@@ -17160,7 +17160,7 @@ dumpConstraint(Archive *fout, const ConstraintInfo *coninfo)
 											 indxinfo->dobj.catId.oid, true);
 
 		/*
-		 * This is special case on AgensGraph constraint. There should be
+		 * This is special case on GraphDatabase constraint. There should be
 		 * information to know how it was created, but nothing is set.
 		 *
 		 * Also, it would be better to implement a special Cypher syntax so

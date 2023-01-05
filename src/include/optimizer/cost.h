@@ -209,7 +209,7 @@ extern PathTarget *set_pathtarget_cost_width(PlannerInfo *root, PathTarget *targ
 extern double compute_bitmap_pages(PlannerInfo *root, RelOptInfo *baserel,
 								   Path *bitmapqual, int loop_count, Cost *cost, double *tuple);
 
-/* for agensgraph */
+/* for graphdatabase */
 extern void cost_dijkstra(Path *path,
 						  Cost input_startup_cost, Cost input_total_cost,
 						  double tuples, int width);

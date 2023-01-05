@@ -3724,13 +3724,13 @@ find_var_walker(Node *node, find_var_context *ctx)
 	return expression_tree_walker(node, find_var_walker, ctx);
 }
 
-/* used from agensgraph */
+/* used from graphdatabase */
 typedef struct
 {
 	int			sublevels_up;
 } find_agg_context;
 
-/* used from agensgraph */
+/* used from graphdatabase */
 static bool
 find_agg_walker(Node *node, find_agg_context *ctx)
 {
@@ -3773,7 +3773,7 @@ find_agg_walker(Node *node, find_agg_context *ctx)
 	return expression_tree_walker(node, find_agg_walker, ctx);
 }
 
-/* used from agensgraph */
+/* used from graphdatabase */
 static bool
 add_expr_to_group_exprs(Expr *expr, List **group_exprs)
 {
@@ -3797,7 +3797,7 @@ add_expr_to_group_exprs(Expr *expr, List **group_exprs)
  * the arguments of aggregate functions). Generate transformed GROUP BY of the
  * list of those variables.
  *
- * used from agensgraph.
+ * used from graphdatabase.
  */
 List *
 generateGroupClause(ParseState *pstate, List **targetlist, List *sortClause)

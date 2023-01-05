@@ -149,7 +149,7 @@ static Const *transformPartitionBoundValue(ParseState *pstate, Node *con,
 										   const char *colName, Oid colType, int32 colTypmod,
 										   Oid partCollation);
 
-/* for agensgraph */
+/* for graphdatabase */
 static List *makeVertexElements(void);
 static List *makeEdgeElements(void);
 static List *makeEdgeIndex(RangeVar *label);

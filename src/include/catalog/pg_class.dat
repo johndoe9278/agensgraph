@@ -25,7 +25,7 @@
 { oid => '1259',
   relname => 'pg_class', reltype => 'pg_class' },
 
-# agensgraph - composite types
+# graphdatabase - composite types
 { oid => '7010',
   relname => 'ag_vertex', reltype => 'vertex' },
 { oid => '7020',

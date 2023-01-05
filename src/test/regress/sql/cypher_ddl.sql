@@ -240,12 +240,12 @@ CREATE VLABEL regv1;
 CREATE CONSTRAINT ON regv1 ASSERT a.b IS UNIQUE;
 \dGv+ regv1
 
-CREATE (:regv1 {a: {b: 'agens', c: 'graph'}});
-CREATE (:regv1 {a: {b: 'agens', c: 'graph'}});
-CREATE (:regv1 {a: {b: 'agens'}});
+CREATE (:regv1 {a: {b: 'graph', c: 'database'}});
+CREATE (:regv1 {a: {b: 'graph', c: 'database'}});
+CREATE (:regv1 {a: {b: 'graph'}});
 CREATE (:regv1 {a: {b: 'c'}});
 CREATE (:regv1 {a: 'b'});
-CREATE (:regv1 {a: 'agens-graph'});
+CREATE (:regv1 {a: 'graph-database'});
 
 -- expr unique constraint
 CREATE ELABEL rege1;
@@ -253,10 +253,10 @@ CREATE ELABEL rege1;
 CREATE CONSTRAINT ON rege1 ASSERT c + d IS UNIQUE;
 \dGe+ rege1
 
-CREATE ()-[:rege1 {c: 'agens', d: 'graph'}]->();
-CREATE ()-[:rege1 {c: 'agens', d: 'graph'}]->();
-CREATE ()-[:rege1 {c: 'agens', d: 'rdb'}]->();
-CREATE ()-[:rege1 {c: 'agen', d: 'sgraph'}]->();
+CREATE ()-[:rege1 {c: 'graph', d: 'database'}]->();
+CREATE ()-[:rege1 {c: 'graph', d: 'database'}]->();
+CREATE ()-[:rege1 {c: 'graph', d: 'rdb'}]->();
+CREATE ()-[:rege1 {c: 'grap', d: 'hdatabase'}]->();
 
 -- simple not null constraint
 CREATE VLABEL regv2;
@@ -264,9 +264,9 @@ CREATE VLABEL regv2;
 CREATE CONSTRAINT ON regv2 ASSERT name IS NOT NULL;
 \dGv+ regv2
 
-CREATE (:regv2 {name: 'agens'});
+CREATE (:regv2 {name: 'graphdb'});
 CREATE (:regv2 {age: 0});
-CREATE (:regv2 {age: 0, name: 'graph'});
+CREATE (:regv2 {age: 0, name: 'graphdb'});
 CREATE (:regv2 {name: NULL});
 
 -- multi not null constraint
@@ -275,10 +275,10 @@ CREATE VLABEL regv3;
 CREATE CONSTRAINT ON regv3 ASSERT name.first IS NOT NULL AND name.last IS NOT NULL;
 \dGv+ regv3
 
-CREATE (:regv3 {name: 'agens'});
-CREATE (:regv3 {name: {first: 'agens', last: 'graph'}});
-CREATE (:regv3 {name: {first: 'agens'}});
-CREATE (:regv3 {name: {last: 'graph'}});
+CREATE (:regv3 {name: 'graph'});
+CREATE (:regv3 {name: {first: 'graph', last: 'database'}});
+CREATE (:regv3 {name: {first: 'graph'}});
+CREATE (:regv3 {name: {last: 'database'}});
 CREATE (:regv3 {name: {first: NULL, last: NULL}});
 
 -- simple check constraint
@@ -287,10 +287,10 @@ CREATE ELABEL rege2;
 CREATE CONSTRAINT ON rege2 ASSERT a != b;
 \dGe+ rege2
 
-CREATE ()-[:rege2 {a: 'agens', b: 'graph'}]->();
-CREATE ()-[:rege2 {a: 'agens', b: 'agens'}]->();
-CREATE ()-[:rege2 {a: 'agens', b: 'AGENS'}]->();
-CREATE ()-[:rege2 {a: 'agens', d: 'graph'}]->();
+CREATE ()-[:rege2 {a: 'graph', b: 'database'}]->();
+CREATE ()-[:rege2 {a: 'graph', b: 'graph'}]->();
+CREATE ()-[:rege2 {a: 'graph', b: 'GRAPH'}]->();
+CREATE ()-[:rege2 {a: 'graph', d: 'database'}]->();
 
 -- expression check constraint
 CREATE VLABEL regv4;
@@ -309,10 +309,10 @@ CREATE ELABEL rege3;
 CREATE CONSTRAINT ON rege3 ASSERT type IN ['friend', 'lover', 'parent'];
 \dGe+ rege3
 
-CREATE ()-[:rege3 {type: 'friend', name: 'agens'}]->();
-CREATE ()-[:rege3 {type: 'love', name: 'graph'}]->();
-CREATE ()-[:rege3 {type: 'parents', name: 'AGENS'}]->();
-CREATE ()-[:rege3 {type: 'lover', name: 'GRAPH'}]->();
+CREATE ()-[:rege3 {type: 'friend', name: 'graph'}]->();
+CREATE ()-[:rege3 {type: 'love', name: 'database'}]->();
+CREATE ()-[:rege3 {type: 'parents', name: 'GRAPH'}]->();
+CREATE ()-[:rege3 {type: 'lover', name: 'DATABASE'}]->();
 
 -- case check constraint
 CREATE VLABEL regv5;
@@ -320,13 +320,13 @@ CREATE VLABEL regv5;
 CREATE CONSTRAINT ON regv5 ASSERT toLower(trim(id)) IS UNIQUE;
 \dGv+ regv5
 
-CREATE (:regv5 {id: 'agens'});
-CREATE (:regv5 {id: ' agens'});
-CREATE (:regv5 {id: 'agens '});
-CREATE (:regv5 {id: 'AGENS'});
-CREATE (:regv5 {id: ' AGENS '});
+CREATE (:regv5 {id: 'graph'});
+CREATE (:regv5 {id: ' graph'});
+CREATE (:regv5 {id: 'graph '});
 CREATE (:regv5 {id: 'GRAPH'});
-CREATE (:regv5 {id: ' graph '});
+CREATE (:regv5 {id: ' GRAPH '});
+CREATE (:regv5 {id: 'DATABASE'});
+CREATE (:regv5 {id: ' database '});
 
 -- IS NULL constraint
 CREATE ELABEL rege4;
@@ -334,9 +334,9 @@ CREATE ELABEL rege4;
 CREATE CONSTRAINT rege4_name_isnull_constraint ON rege4 ASSERT id IS NULL;
 \dGe+ rege4
 
-CREATE ()-[:rege4 {id: NULL, name: 'agens'}]->();
-CREATE ()-[:rege4 {id: 10, name: 'agens'}]->();
-CREATE ()-[:rege4 {name: 'graph'}]->();
+CREATE ()-[:rege4 {id: NULL, name: 'graph'}]->();
+CREATE ()-[:rege4 {id: 10, name: 'graph'}]->();
+CREATE ()-[:rege4 {name: 'database'}]->();
 
 DROP CONSTRAINT rege4_name_isnull_constraint ON ag_edge;
 DROP CONSTRAINT ON rege4;

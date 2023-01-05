@@ -824,7 +824,7 @@ showVersion(void)
 {
 	if (is_ag_prefix_binary())
 	{
-		puts("agens (AgensGraph) " AG_VERSION);
+		puts("graphdb (GraphDatabase) " AG_VERSION);
 	}
 	else
 	{

@@ -549,7 +549,7 @@
   castfunc => 'tstzmultirange(tstzrange)', castcontext => 'e',
   castmethod => 'f' },
 
-# agensgraph
+# graphdatabase
 # vertex/edge to jsonb
 { castsource => 'vertex', casttarget => 'jsonb',
   castfunc => 'vertex_to_jsonb(vertex)',

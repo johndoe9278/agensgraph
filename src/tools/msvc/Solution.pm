@@ -534,7 +534,7 @@ sub GenerateFiles
 		# not defined, because it'd conflict with __declspec(restrict)
 		restrict => undef,
 		typeof   => undef,
-		# AgensGraph
+		# GraphDatabase
 		AG_COMP_VERSION	=> qq{"$ag_comp_version"},
 		AG_VERSION		=> qq{"$ag_version"},
 		# We will not care about revision on Windows

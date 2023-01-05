@@ -51,7 +51,7 @@ extern List *addTargetToSortList(ParseState *pstate, TargetEntry *tle,
 extern Index assignSortGroupRef(TargetEntry *tle, List *tlist);
 extern bool targetIsInSortList(TargetEntry *tle, Oid sortop, List *sortList);
 
-/* used from agensgraph */
+/* used from graphdatabase */
 extern List *generateGroupClause(ParseState *pstate, List **targetlist,
 								 List *sortClause);
 

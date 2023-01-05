@@ -1,4 +1,4 @@
-name: AgensGraph Regression
+name: GraphDatabase Regression
 
 on:
   push:

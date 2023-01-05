@@ -614,7 +614,7 @@ static Node *wrapCypherWithSelect(Node *stmt);
 %type <defelt>		hash_partbound_elem
 
 
-/* Agens Graph */
+/* Graph Database */
 %type <node>	CreateGraphStmt CreateLabelStmt AlterLabelStmt alter_label_cmd
 				CreateConstraintStmt DropConstraintStmt
 				CreatePropertyIndexStmt
@@ -16671,7 +16671,7 @@ bare_label_keyword:
 
 
 /*
- * Agens Graph
+ * Graph Database
  */
 
 CreateGraphStmt:

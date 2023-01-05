@@ -77,10 +77,10 @@ CREATE (:piv4 {id: 100});
 CREATE VLABEL piv5;
 
 CREATE UNIQUE PROPERTY INDEX ON piv5 (name.first, name.last);
-CREATE (:piv5 {name: {first: 'agens'}});
-CREATE (:piv5 {name: {first: 'agens'}});
-CREATE (:piv5 {name: {first: 'agens', last: 'graph'}});
-CREATE (:piv5 {name: {first: 'agens', last: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph'}});
+CREATE (:piv5 {name: {first: 'graph', last: 'database'}});
+CREATE (:piv5 {name: {first: 'graph', last: 'database'}});
 
 \d propidx.piv5
 \dGv+ piv5

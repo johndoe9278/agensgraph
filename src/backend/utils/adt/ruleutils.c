@@ -500,7 +500,7 @@ static text *string_to_text(char *str);
 static char *flatten_reloptions(Oid relid);
 static void get_reloptions(StringInfo buf, Datum reloptions);
 
-/* AgensGraph rule functions */
+/* GraphDatabase rule functions */
 static bool get_access_arg_expr(Node *node, deparse_context *context,
 								bool showimplicit);
 static void get_pathelem_expr(Node *node, deparse_context *context,
@@ -12941,7 +12941,7 @@ ag_get_graphconstraintdef_worker(Oid constraintId, int prettyFlags,
 			}
 
 			/*
-			 * Unique constraint on AgensGraph is implemented using exclude
+			 * Unique constraint on GraphDatabase is implemented using exclude
 			 * index
 			 */
 		case CONSTRAINT_EXCLUSION:
@@ -13005,7 +13005,7 @@ ag_get_graphconstraintdef_worker(Oid constraintId, int prettyFlags,
 }
 
 /*
- * agens-graph utility for deparsing expressions
+ * graph-database utility for deparsing expressions
  */
 static char *
 deparse_prop_expression_pretty(Node *expr, List *dpcontext, int prettyFlags)

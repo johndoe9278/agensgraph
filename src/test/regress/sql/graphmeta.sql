@@ -1,5 +1,5 @@
 --
--- AgensGraph catalog ag_graphmeta test
+-- GraphDatabase catalog ag_graphmeta test
 --
 CREATE GRAPH graphmeta;
 SET graph_path = graphmeta;

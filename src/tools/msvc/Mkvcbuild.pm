@@ -437,8 +437,8 @@ sub mkvcbuild
 	$zic->AddDirResourceFile('src/timezone');
 	$zic->AddReference($libpgcommon, $libpgport);
 
-	my $agens = AddSimpleFrontend('psql', 1);
-	$agens->{name} = 'agens';
+	my $graphdb = AddSimpleFrontend('psql', 1);
+	$graphdb->{name} = 'graphdb';
 
 	my $ag_ctl = AddSimpleFrontend('pg_ctl', 1);
 	$ag_ctl->{name} = 'ag_ctl';

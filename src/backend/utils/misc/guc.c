@@ -4268,7 +4268,7 @@ static struct config_string ConfigureNamesString[] =
 	{
 		/* Can't be set in postgresql.conf */
 		{"agversion", PGC_INTERNAL, PRESET_OPTIONS,
-			gettext_noop("Shows the AgensGraph server version."),
+			gettext_noop("Shows the GraphDatabase server version."),
 			NULL,
 			GUC_REPORT | GUC_NOT_IN_SAMPLE | GUC_DISALLOW_IN_FILE
 		},

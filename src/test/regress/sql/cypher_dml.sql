@@ -10,20 +10,20 @@ CREATE TABLE history (year, event) AS VALUES
 (1996, 'PostgreSQL'),
 (2016, 'Graph');
 
-DROP GRAPH agens CASCADE;
-CREATE GRAPH agens;
+DROP GRAPH graphdb CASCADE;
+CREATE GRAPH graphdb;
 
 --
 -- RETURN
 --
 
-RETURN 3 + 4, 'hello' + ' agens';
+RETURN 3 + 4, 'hello' + ' graphdb';
 
-RETURN 3 + 4 AS lucky, 'hello' + ' agens' AS greeting;
+RETURN 3 + 4 AS lucky, 'hello' + ' graphdb' AS greeting;
 
 RETURN (SELECT event FROM history WHERE year = 2016);
 
-SELECT * FROM (RETURN 3 + 4, 'hello' + ' agens') AS _(lucky, greeting);
+SELECT * FROM (RETURN 3 + 4, 'hello' + ' graphdb') AS _(lucky, greeting);
 
 --
 -- zero-length _vertex, _edge, and graphpath
@@ -48,17 +48,17 @@ CREATE VLABEL repo;
 CREATE ELABEL lib;
 CREATE ELABEL doc;
 
-CREATE (g:repo {name: 'agens-graph',
+CREATE (g:repo {name: 'graph-database',
                 year: (SELECT year FROM history WHERE event = 'Graph')})
 RETURN properties(g) AS g;
 
 MATCH (g:repo)
-CREATE (j:repo {name: 'agens-graph-jdbc', year: 2016}),
-       (d:repo {name: 'agens-graph-docs', year: 2016})
+CREATE (j:repo {name: 'graph-database-jdbc', year: 2016}),
+       (d:repo {name: 'graph-database-docs', year: 2016})
 CREATE (g)-[l:lib {lang: 'java'}]->(j),
        p=(g)
          -[:lib {lang: 'c'}]->
-         (:repo {name: 'agens-graph-odbc', year: 2016}),
+         (:repo {name: 'graph-database-odbc', year: 2016}),
        (g)-[e:doc {lang: 'en'}]->(d)
 RETURN properties(l) AS lj, properties(j) AS j,
        properties((edges(p))[0]) AS lc, properties((vertices(p))[1]) AS c,
@@ -98,7 +98,7 @@ CREATE ELABEL e1;
 
 CREATE p=()-[:e1]->() RETURN p;
 
-CREATE (a {name:'agens'}), (b {name:a.name});
+CREATE (a {name:'graphdb'}), (b {name:a.name});
 
 DROP GRAPH g_create CASCADE;
 
@@ -106,7 +106,7 @@ DROP GRAPH g_create CASCADE;
 -- MATCH
 --
 
-SET GRAPH_PATH = agens;
+SET GRAPH_PATH = graphdb;
 
 MATCH (a) RETURN a.name AS a;
 MATCH (a), (a) RETURN a.name AS a;
@@ -139,18 +139,18 @@ RETURN a.name AS a, b.lang AS b, c.name AS c,
        f.name AS f, g.lang AS g, h.name AS h
        ORDER BY a, b, c, d, e, f, g, h;
 
-MATCH (a {name: 'agens-graph'}), (a {year: 2016}) RETURN properties(a) AS a;
-MATCH p=(a)-[]->({name: 'agens-graph-jdbc'}) RETURN a.name AS a;
+MATCH (a {name: 'graph-database'}), (a {year: 2016}) RETURN properties(a) AS a;
+MATCH p=(a)-[]->({name: 'graph-database-jdbc'}) RETURN a.name AS a;
 MATCH p=()-[:lib]->(a) RETURN a.name AS a;
 MATCH p=()-[{lang: 'en'}]->(a) RETURN a.name AS a;
 
 MATCH (a {year: (SELECT to_jsonb(year) FROM history WHERE event = 'Graph')})
-WHERE a.name = 'agens-graph'
+WHERE a.name = 'graph-database'
 RETURN a.name AS a;
 
 MATCH (a), (a:repo) RETURN a.name AS a;
 
-MATCH p=({name: 'agens-graph'})-[{lang: 'java'}]->(m) RETURN *;
+MATCH p=({name: 'graph-database'})-[{lang: 'java'}]->(m) RETURN *;
 
 MATCH ();
 MATCH ()-[a]-(), (a) RETURN *;
@@ -561,7 +561,7 @@ CREATE (n)-[:e3]->(:v3), (n)-[:e3]->(:v3);
 
 MATCH p=(:v1)-[*3]->() RETURN p;
 
-SET graph_path = agens;
+SET graph_path = graphdb;
 
 --
 -- DISTINCT
@@ -644,7 +644,7 @@ MATCH (a) LOAD FROM history AS a RETURN *;
 CREATE VLABEL feature;
 CREATE ELABEL supported;
 
-MATCH (a:repo {name: 'agens-graph'})
+MATCH (a:repo {name: 'graph-database'})
 LOAD FROM history AS h
 CREATE (:feature {name: h.event})-[:supported]->(a);
 
@@ -665,17 +665,17 @@ MATCH (a:repo) RETURN a.name AS a;
 MATCH (a) DETACH DELETE a;
 MATCH (a) RETURN a;
 
-SELECT count(*) FROM agens.ag_edge;
+SELECT count(*) FROM graphdb.ag_edge;
 
 -- attempt to delete null object
 
-CREATE ({name: 'agensgraph'})-[:made_by]->({name: 'bitnine'});
+CREATE ({name: 'graphdatabase'})-[:made_by]->({name: 'ageproject'});
 
-MATCH (a {name: 'agensgraph'}), (g {name: 'bitnine'})
+MATCH (a {name: 'graphdatabase'}), (g {name: 'ageproject'})
 OPTIONAL MATCH (a)-[r:made_by]-(g)
 DELETE r;
 
-MATCH (a {name: 'agensgraph'}), (g {name: 'bitnine'})
+MATCH (a {name: 'graphdatabase'}), (g {name: 'ageproject'})
 OPTIONAL MATCH (a)-[r:made_by]-(g)
 DELETE r;
 
@@ -900,7 +900,7 @@ MATCH (a) DETACH DELETE (a);
 -- += operator
 
 CREATE ({age: 10});
-MATCH (a) SET a += {name: 'bitnine', age: 3}
+MATCH (a) SET a += {name: 'ageproject', age: 3}
 RETURN properties(a);
 MATCH (a) RETURN properties(a);
 
@@ -913,7 +913,7 @@ MATCH (a) DETACH DELETE (a);
 -- CREATE ... SET ...
 CREATE p=(a {no:1})-[r1:rel]->(b {no:2})-[r2:rel]->(c {no:3})
 SET a.no = 4, b.no = 5, c.no = 6
-SET r1.name = 'agens', r2.name = 'graph'
+SET r1.name = 'graph', r2.name = 'database'
 RETURN properties(a), properties(r1), properties(b), properties(r2), properties(c);
 
 MATCH (a)-[r]->(b) RETURN a.no, r.name, b.no;
@@ -932,7 +932,7 @@ MATCH (a) SET a = NULL;
 MATCH (a) DETACH DELETE (a);
 
 -- referring to undefined attributes
-CREATE ({name: 'bitnine'});
+CREATE ({name: 'ageproject'});
 CREATE ({age: 10});
 MATCH (a) SET a.age = a.age + 1
 RETURN properties(a);
@@ -943,26 +943,26 @@ MATCH (a) RETURN properties(a);
 
 -- working with NULL
 CREATE VLABEL person;
-CREATE (:person {name: 'bitnine', age: NULL});
-MATCH (a:person {name: 'bitnine'}) RETURN properties(a) AS a;
+CREATE (:person {name: 'ageproject', age: NULL});
+MATCH (a:person {name: 'ageproject'}) RETURN properties(a) AS a;
 MATCH (a:person {age: NULL}) RETURN properties(a) AS a;
 MATCH (a:person) WHERE a.age IS NULL RETURN properties(a) AS a;
 
-CREATE (:person {name: 'agens', key1: 1, key2: 2, key3: 3});
-MATCH (a:person {name: 'agens'})
+CREATE (:person {name: 'graphdb', key1: 1, key2: 2, key3: 3});
+MATCH (a:person {name: 'graphdb'})
   SET a.key1 = NULL
   RETURN properties(a);
-MATCH (a:person {name: 'agens'})
+MATCH (a:person {name: 'graphdb'})
   SET a.key2 = null
   RETURN properties(a);
-MATCH (a:person {name: 'agens'})
+MATCH (a:person {name: 'graphdb'})
   SET a.key3 = {first: 1, last: null}
   RETURN properties(a);
-MATCH (a:person {name: 'agens'})
-  SET a = {name: 'agens', key4: null}
+MATCH (a:person {name: 'graphdb'})
+  SET a = {name: 'graphdb', key4: null}
   RETURN properties(a);
 
-MATCH (a:person {name: 'agens'}) RETURN properties(a);
+MATCH (a:person {name: 'graphdb'}) RETURN properties(a);
 
 --
 -- MERGE
@@ -1073,19 +1073,19 @@ RETURN properties(r);
 MATCH (a) DETACH DELETE a;
 
 -- update clauses
-CREATE (a:v1 {name: 'bitnine'}) MERGE (:v2 {name: a.name});
-CREATE (a:v1 {name: 'AgensGraph'})
+CREATE (a:v1 {name: 'ageproject'}) MERGE (:v2 {name: a.name});
+CREATE (a:v1 {name: 'GraphDatabase'})
 MERGE (b:v2 {name: a.name})
 RETURN properties(a), properties(b);
 
-MERGE (a:v1 {name: 'bitnine'})
-MERGE (b:v1 {name: 'AgensGraph'})
+MERGE (a:v1 {name: 'ageproject'})
+MERGE (b:v1 {name: 'GraphDatabase'})
 CREATE p=(a)-[r:e1 {name: a.name + b.name}]->(b)
 RETURN properties(a), properties(r), properties(b), count(p);
 
-MERGE (a {name: 'bitnine'})
+MERGE (a {name: 'ageproject'})
 CREATE (b:v1 {name: a.name})
-MERGE (c:v1 {name: 'bitnine'})
+MERGE (c:v1 {name: 'ageproject'})
   ON MATCH SET c.matched = true
   ON CREATE SET c.matched = false;
 MATCH (a) RETURN properties(a);
@@ -1416,7 +1416,7 @@ DROP GRAPH ag154 CASCADE;
 DROP GRAPH t CASCADE;
 DROP GRAPH o CASCADE;
 
-SET graph_path = agens;
+SET graph_path = graphdb;
 
 DROP VLABEL feature;
 DROP ELABEL supported;
@@ -1424,6 +1424,6 @@ DROP VLABEL repo;
 DROP ELABEL lib;
 DROP ELABEL doc;
 
-DROP GRAPH agens CASCADE;
+DROP GRAPH graphdb CASCADE;
 
 DROP TABLE history;

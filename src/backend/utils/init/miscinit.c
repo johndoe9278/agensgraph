@@ -1570,7 +1570,7 @@ ValidateAgVersion(const char *path)
 		ereport(FATAL,
 				(errcode(ERRCODE_INVALID_PARAMETER_VALUE),
 				 errmsg("database files are incompatible with server"),
-				 errdetail("The data directory was initialized by AgensGraph version %s, "
+				 errdetail("The data directory was initialized by GraphDatabase version %s, "
 						   "which is not compatible with this version %s.",
 						   file_version_string, AG_COMP_VERSION)));
 }

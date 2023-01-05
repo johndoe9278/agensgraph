@@ -11621,7 +11621,7 @@
   prorettype => 'bytea', proargtypes => 'pg_brin_minmax_multi_summary',
   prosrc => 'brin_minmax_multi_summary_send' },
 
-# agensgraph
+# graphdatabase
 { oid => '7000', descr => 'make graphid',
   proname => 'graphid', prorettype => 'graphid', proargtypes => 'int4 int8',
   prosrc => 'graphid' },
@@ -11768,7 +11768,7 @@
   proname => 'ag_get_graphconstraintdef', provolatile => 's',
   prorettype => 'text', proargtypes => 'oid',
   prosrc => 'ag_get_graphconstraintdef' },
-{ oid => '7112', descr => 'AgensGraph version string',
+{ oid => '7112', descr => 'GraphDatabase version string',
   proname => 'agversion', provolatile => 's', prorettype => 'text',
   proargtypes => '', prosrc => 'ag_version' },
 { oid => '7130',
@@ -12021,7 +12021,7 @@
   proname => 'isempty', prorettype => 'bool',
   proargtypes => 'jsonb', prosrc => 'cypher_isempty_jsonb' },
 
-# agensgraph array functions
+# graphdatabase array functions
 { oid => '7300', descr => 'the first element in a array',
   proname => 'head', prorettype => 'anyelement', proargtypes => 'anyarray',
   prosrc => 'array_head' },
@@ -12032,7 +12032,7 @@
   proname => 'tail', prorettype => 'anyarray', proargtypes => 'anyarray',
   prosrc => 'array_tail' },
 
-# supports for agensgraph binary upgrade
+# supports for graphdatabase binary upgrade
 { oid => '8001', descr => 'for use by pg_upgrade',
   proname => 'binary_upgrade_set_next_ag_graph_oid', provolatile => 'v',
   proparallel => 'r', prorettype => 'void', proargtypes => 'oid',

@@ -95,7 +95,7 @@ static void generate_mergejoin_paths(PlannerInfo *root,
 									 List *merge_pathkeys,
 									 bool is_partial);
 
-/* for agensgraph */
+/* for graphdatabase */
 static void add_cyphermerge_path(PlannerInfo *root, RelOptInfo *joinrel,
 								 RelOptInfo *outerrel, RelOptInfo *innerrel,
 								 JoinPathExtraData *extra);

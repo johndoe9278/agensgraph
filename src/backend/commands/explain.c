@@ -155,7 +155,7 @@ static void ExplainJSONLineEnding(ExplainState *es);
 static void ExplainYAMLLineStarting(ExplainState *es);
 static void escape_yaml(StringInfo buf, const char *str);
 
-/* AgensGraph join types */
+/* GraphDatabase join types */
 static void show_hash2side_info(Hash2SideState *hashstate, ExplainState *es);
 
 
@@ -3209,7 +3209,7 @@ show_hash_info(HashState *hashstate, ExplainState *es)
 }
 
 /*
- * Show information on hash buckets/batches. ( AgensGraph feature )
+ * Show information on hash buckets/batches. ( GraphDatabase feature )
  */
 static void
 show_hash2side_info(Hash2SideState *hashstate, ExplainState *es)

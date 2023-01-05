@@ -485,7 +485,7 @@
 
 # no brin opclass for the geometric types except box
 
-# agensgraph
+# graphdatabase
 { opcmethod => 'btree', opcname => 'graphid_ops',
   opcfamily => 'btree/graphid_ops', opcintype => 'graphid' },
 { opcmethod => 'hash', opcname => 'graphid_ops',

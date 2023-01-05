@@ -1082,7 +1082,7 @@ _equalQuery(const Query *a, const Query *b)
 	COMPARE_LOCATION_FIELD(stmt_location);
 	COMPARE_SCALAR_FIELD(stmt_len);
 
-	/* todo: for AgensGraph, needs cleanup */
+	/* todo: for GraphDatabase, needs cleanup */
 	COMPARE_SCALAR_FIELD(dijkstraWeight);
 	COMPARE_SCALAR_FIELD(dijkstraWeightOut);
 	COMPARE_NODE_FIELD(dijkstraEndId);

@@ -3475,7 +3475,7 @@
   oprcode => 'multirange_after_multirange', oprrest => 'multirangesel',
   oprjoin => 'scalargtjoinsel' },
 
-# AgensGraph graphid operators
+# GraphDatabase graphid operators
 { oid => '7087', oid_symbol => 'OID_GRAPHID_EQ_OP', descr => 'equal',
   oprname => '=', oprcanmerge => 't', oprcanhash => 't', oprleft => 'graphid',
   oprright => 'graphid', oprresult => 'bool', oprcom => '=(graphid,graphid)',
@@ -3507,7 +3507,7 @@
   oprnegate => '<(graphid,graphid)', oprcode => 'graphid_ge',
   oprrest => 'scalargesel', oprjoin => 'scalargejoinsel' },
 
-# AgensGraph vertex operators
+# GraphDatabase vertex operators
 { oid => '7136', oid_symbol => 'OID_VERTEX_EQ_OP', descr => 'equal',
   oprname => '=', oprcanmerge => 't', oprcanhash => 't', oprleft => 'vertex',
   oprright => 'vertex', oprresult => 'bool', oprcom => '=(vertex,vertex)',
@@ -3541,7 +3541,7 @@
   oprnegate => '<(vertex,vertex)', oprcode => 'vertex_ge',
   oprrest => 'scalargesel', oprjoin => 'scalargejoinsel' },
 
-# AgensGraph edge operators
+# GraphDatabase edge operators
 { oid => '7148', descr => 'equal',
   oprname => '=', oprcanmerge => 't', oprcanhash => 't', oprleft => 'edge',
   oprright => 'edge', oprresult => 'bool', oprcom => '=(edge,edge)',
@@ -3568,7 +3568,7 @@
   oprcom => '<=(edge,edge)', oprnegate => '<(edge,edge)', oprcode => 'edge_ge',
   oprrest => 'scalargesel', oprjoin => 'scalargejoinsel' },
 
-# AgensGraph rowid operators
+# GraphDatabase rowid operators
 { oid => '7161', descr => 'equal',
   oprname => '=', oprcanmerge => 't', oprcanhash => 't', oprleft => 'rowid',
   oprright => 'rowid', oprresult => 'bool', oprcom => '=(rowid,rowid)',

@@ -217,7 +217,7 @@ ClassifyUtilityCommandAsReadOnly(Node *parsetree)
 		case T_SecLabelStmt:
 		case T_TruncateStmt:
 		case T_ViewStmt:
-			/* AgensGraph DDLs */
+			/* GraphDatabase DDLs */
 		case T_CreateGraphStmt:
 		case T_CreateLabelStmt:
 		case T_AlterLabelStmt:

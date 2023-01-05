@@ -619,7 +619,7 @@ static const ObjectPropertyType ObjectProperty[] =
 		OBJECT_USER_MAPPING,
 		false
 	},
-	/* for agensgraph */
+	/* for graphdatabase */
 	{
 		"graph",
 		GraphRelationId,
@@ -951,7 +951,7 @@ static void getOpFamilyIdentity(StringInfo buffer, Oid opfid, List **object,
 static void getRelationIdentity(StringInfo buffer, Oid relid, List **object,
 								bool missing_ok);
 
-/* for agensgraph */
+/* for graphdatabase */
 static ObjectAddress get_object_address_graph(Value *object, bool missing_ok);
 static ObjectAddress get_object_address_label(List *object, Relation *relp,
 											  LOCKMODE lockmode,
